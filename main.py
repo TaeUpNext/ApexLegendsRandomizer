@@ -16,9 +16,9 @@ class PickLegend:
         del legends[0]
         secondaryChoice = legends[0]
         del legends[0]
-        lastChoice = [0]
+        lastChoice = legends[0]
         del legends[0]
-        print(f"First Choice (MUST USE THIS IF AVAILABLE")
+        print(f"\nFirst Choice (MUST USE THIS IF AVAILABLE: {firstChoice} \n Second Choice (Only use if 1st option is not available): {secondaryChoice} \n Third Choice (ONLY USE IF first 2 choices ARE NOT AVAILABLE): {lastChoice}")
         
 
 class PickLoadout:
@@ -26,7 +26,7 @@ class PickLoadout:
     loadout = ["Havoc Rifle", "VK-47 Flatline", "Hemlok Burst AR", "R-301 Carbine", "Alternator SMG", "Prowler Burst PDW", "R-99", "Volt SMG", "C.A.R. SMG", "Devotion LMG", "L-Star EMG", "M600 Spitfire", "Rampage LMG", "G7 Scout", "Triple Take", "30-30 Repeater", "Bocek Compund Bow", "Charge Rifle", "Longbow DMR", "Kraber .50-Cal Sniper", "Sentinel","EVA-8 Auto", "Mastiff Shotgun", "Mozambique Shotgun", "Peacekeaper", "RE-45", "P2020", "Wingman"]
 
     def shuffle():
-        for i in range(len(legends)-1, 0, -1):
+        for i in range(len(loadout)-1, 0, -1):
             #pick a random index from 0 to i 
             j = random.randint(0, i +1)
             #swap arr[i] with the element at random index 
@@ -39,10 +39,11 @@ class PickLoadout:
         del loadout[0]
         backupGun = loadout[0]
         del loadout[0]
-        print(f" Primary Gun: {primaryGun} \n Secondary Gun: {secondaryGun}\n Backup Gun (Only if one of the first two are CP guns): {backupGun}")
+        print(f"\n Primary Gun: {primaryGun} \n Secondary Gun: {secondaryGun}\n Backup Gun (Only if one of the first two are CP guns): {backupGun}\n")
 
-plg = PickLegend()
-plg.shuffle()        
+plg = PickLegend
+plg.shuffle()
+plg.choose_legend()
 pld = PickLoadout           
 pld.shuffle()
 pld.choose_loadout()
