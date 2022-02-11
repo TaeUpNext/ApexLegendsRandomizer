@@ -42,50 +42,71 @@ class PickLoadout:
 randomChoice = int(input("\nWould you like to randomly generate a legend, a loadout or both? Enter 1 for a legend, 2 for a gun or 3 for both: ") )
 rc = randomChoice #variable that replaces randomChoice with rc
 
-if rc == 1:#generates a random legend based on users choice
+if rc == 1: #choice to start picking the legend
     plg = PickLegend
     plg.shuffle() #shuffles the legends list 
     print("\n**********************************************************************************")
-    plg.choose_legend() 
+    plg.choose_legend()
     print("\n**********************************************************************************")
-    stopCheck = int(input("\nWould you like to pick a loadout too? Enter 1 if yes or 2 for no: "))
-    if stopCheck == 1: #user wants to pick a loadout now too so it picks one for them
-        pld = PickLoadout           
-        pld.shuffle() #shuffles the loadouts list 
-        print("\n**********************************************************************************")
-        pld.choose_loadout()
-        print("\n Program finished good luck in the Outlands Legend")
-        print("\n**********************************************************************************")
-    elif stopCheck ==2: #user does not want to pick a loadout and it ends the program
-        print("\n Program finished good luck in the Outlands Legend")
-    
-    
-elif rc == 2: #generates a random loadout based on users choice
-    pld = PickLoadout            
+    stop = False
+    while not stop:
+        stopCheck = int(input("\nWould you like to pick a another legend or are you done? Enter 1 to pick another legend or 2 to stop: "))
+        if stopCheck == 1: #user wants to pick a loadout now too so it picks one for them
+            plg = PickLegend
+            plg.shuffle() #shuffles the legends list 
+            print("\n**********************************************************************************")
+            plg.choose_legend() 
+            print("\n**********************************************************************************")
+        elif stopCheck ==2: #user does not want to pick a loadout and it ends the program
+            stop = True
+            print("\n Program finished good luck in the Outlands Legend")
+
+
+
+elif rc == 2: #choice to start picking the loadout 
+    pld = PickLoadout
     pld.shuffle() #shuffles the loadouts list 
     print("\n**********************************************************************************")
     pld.choose_loadout()
     print("\n**********************************************************************************")
-    stopCheck = int(input("\nWould you like to pick a Legend too? Enter 1 if yes or 2 for no: "))
-    if stopCheck == 1: #user wants to pick a legend now too so it picks one for them
-        plg = PickLegend
-        plg.shuffle() #shuffles the legends list 
-        print("\n**********************************************************************************")
-        plg.choose_legend()
-        print("\nProgram finished good luck in the Outlands Legend") 
-        print("\n**********************************************************************************")
-    elif stopCheck ==2: #user does not want to pick a legend and it ends the program
-        print("\n Program finished good luck in the Outlands Legend")
-    
+    stop = False
+    while not stop:
+        stopCheck = int(input("\nWould you like to pick a another loadout or are you done? Enter 1 to pick another legend or 2 to stop: "))
+        if stopCheck == 1: #user wants to pick a loadout now too so it picks one for them
+            pld = PickLoadout
+            pld.shuffle() #shuffles the loadouts list 
+            print("\n**********************************************************************************")
+            pld.choose_loadout()
+            print("\n**********************************************************************************")
+        elif stopCheck ==2: #user does not want to pick a loadout and it ends the program
+            stop = True
+            print("\n Program finished good luck in the Outlands Legend")
 
-elif rc == 3: #generates both a random legend and a random loadout based on the users choice
+
+elif rc == 3: #choice to start picking both a legend 
     plg = PickLegend
     plg.shuffle()
     print("\n**********************************************************************************")
-    plg.choose_legend() 
-    pld = PickLoadout           
+    plg.choose_legend()
+    pld = PickLoadout
     pld.shuffle()
     pld.choose_loadout()
     print("\n Program finished good luck in the Outlands Legend")
     print("\n**********************************************************************************")
+    stop = False
+    while not stop:
+        stopCheck = int(input("\nWould you like to pick a another loadout or are you done? Enter 1 to pick another legend or 2 to stop: "))
+        if stopCheck == 1: #user wants to pick a loadout now too so it picks one for them
+            plg = PickLegend
+            plg.shuffle()
+            print("\n**********************************************************************************")
+            plg.choose_legend()
+            pld = PickLoadout
+            pld.shuffle()
+            pld.choose_loadout()
+            print("\n Program finished good luck in the Outlands Legend")
+            print("\n**********************************************************************************")
+        elif stopCheck ==2: #user does not want to pick a loadout and it ends the program
+            stop = True
+            print("\n Program finished good luck in the Outlands Legend")
 
